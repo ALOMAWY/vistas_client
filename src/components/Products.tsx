@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
@@ -108,13 +108,9 @@ const Product = ({ type, products_obj }: Product_Interface) => {
 
 const Products = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const [itsOver, setItsOver] = useState<boolean>(false);
-  const { isLoading, products, product } = useSelector(
-    (state: any) => state.api
-  );
+  const { products } = useSelector((state: any) => state.api);
   useEffect(() => {
     dispatch(fetchProducts());
-    console.log(products);
   }, []);
 
   return (

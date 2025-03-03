@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { Product_Type, updateProductParamsTypes } from "../../utils/types";
 
-const API_URL = "http://localhost:5000/api/products";
+const API_URL = "https://vistas-server.onrender.com/api/products";
 
 export const fetchProducts = createAsyncThunk(
   "/api/products",
