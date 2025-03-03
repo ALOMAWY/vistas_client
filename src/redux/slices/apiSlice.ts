@@ -192,7 +192,7 @@ const apiSlice = createSlice({
         state.error = action.payload as string;
         state.isDeleted = false;
       })
-      .addCase(deleteAll.fulfilled, (state, action) => {
+      .addCase(deleteAll.fulfilled, (state) => {
         state.isLoading = false;
         state.error = null;
         state.isDeleted = true;
@@ -208,7 +208,7 @@ const apiSlice = createSlice({
         state.error = action.payload as string;
         state.isDeleted = false;
       })
-      .addCase(deleteById.fulfilled, (state, action) => {
+      .addCase(deleteById.fulfilled, (state) => {
         state.isLoading = false;
         state.error = null;
         state.isDeleted = true;

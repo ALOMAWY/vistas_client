@@ -9,16 +9,16 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../redux/store";
 import { uploadImage } from "../redux/slices/apiSlice";
-import { Product_Type, updateProductParamsTypes } from "../utils/types";
+import { Product_Type } from "../utils/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { data } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { products, product, isLoading, isDeleted, error, productURL } =
-    useSelector((state: any) => state.api);
+  const { products, product, isDeleted, productURL } = useSelector(
+    (state: any) => state.api
+  );
 
   const productState: Product_Type = {
     size: "",
@@ -70,8 +70,6 @@ const Dashboard = () => {
     else dispatch(addProduct(formData));
   };
 
-  const [image, setImage] = useState<string | null>(null);
-
   const fileReaderRef = useRef<HTMLInputElement | null>(null);
 
   const onSelectFile = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,7 +80,6 @@ const Dashboard = () => {
 
       reader.onload = (event) => {
         if (event.target && event.target.result) {
-          setImage(event.target.result as string);
           processImage(event.target.result as string);
         }
       };
