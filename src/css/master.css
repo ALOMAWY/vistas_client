@@ -728,6 +728,12 @@ header nav div svg {
 }
 
 @media (max-width: 767px) {
+
+  html{
+    font-size: 12px;
+  }
+
+
   .section-title {
     font-size: 3rem;
   }

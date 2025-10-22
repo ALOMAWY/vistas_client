@@ -38,7 +38,7 @@ const MenuLayer = () => {
           <Link
             onClick={() => setIsMenuOpen(false)}
             className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block"
-            to="/Who_We_Are"
+            to="/who_we_are"
           >
             Who We Are
           </Link>
@@ -56,7 +56,7 @@ const MenuLayer = () => {
           <Link
             onClick={() => setIsMenuOpen(false)}
             className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block"
-            to="/Products"
+            to="/products"
           >
             Products
           </Link>
@@ -66,7 +66,7 @@ const MenuLayer = () => {
           <Link
             onClick={() => setIsMenuOpen(false)}
             className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block"
-            to="/Contact"
+            to="/contact"
           >
             Contact
           </Link>

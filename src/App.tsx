@@ -11,7 +11,7 @@ import { MenuProvider } from "./components/MenuContext.tsx";
 import Contact from "./components/Contact.tsx";
 import Products from "./components/Products.tsx";
 import Dashboard from "./components/Dashborad.tsx";
-// import ImageCropper from "./components/ImageCropper.tsx";
+import ProductDetails from "./components/ProductDetails.tsx";
 
 function App() {
   return (
@@ -20,10 +20,11 @@ function App() {
         <MenuLayer />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/Who_We_Are" element={<WhoWeAre />}></Route>
-          <Route path="/Contact" element={<Contact />}></Route>
-          <Route path="/Products" element={<Products />}></Route>
-          <Route path="/Dashboard_963" element={<Dashboard />}></Route>
+          <Route path="/who_we_are" element={<WhoWeAre />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/products" element={<Products />}></Route>
+          <Route path="/products/:id" element={<ProductDetails />}></Route>
+          <Route path="/dashboard_963" element={<Dashboard />}></Route>
         </Routes>
       </BrowserRouter>
     </MenuProvider>

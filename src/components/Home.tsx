@@ -7,6 +7,7 @@ import OurProducts from "./OurProducts";
 import Footer from "./Footer";
 import styled from "styled-components";
 import MenuLayer from "./MenuLayer";
+import CustomersTalk from "./CustomersTalk";
 
 const StyledHeader = styled.div`
   position: absolute;
@@ -22,6 +23,7 @@ export default function Home() {
       </StyledHeader>
       <Landing />
       <About />
+      {/* <CustomersTalk /> */}
       <Discover />
       <OurProducts />
       <Footer />
