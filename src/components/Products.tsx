@@ -6,6 +6,7 @@ import { Product_Type } from "../utils/types";
 import { AppDispatch } from "../redux/store";
 import { fetchProducts } from "../redux/slices/apiSlice";
 import { useNavigate } from "react-router-dom";
+import { types } from "../constants/productsTypes";
 
 interface IProduct {
   type: string;
@@ -132,7 +133,10 @@ const ProductTypeArea = ({ type, products_obj }: IProduct) => {
       <div
         // className="show-more mx-auto my-5 p-3 text-uppercase fw-normal text-light cursor-pointer"
         className="btn btn-success w-25 text-capitalize my-5 mx-auto"
-        style={{ display: itsOver ? "block" : "none" }}
+        style={{
+          display:
+            itsOver && showingProducts < products.length ? "block" : "none",
+        }}
         onClick={handleShowMore}
       >
         show more
@@ -145,13 +149,9 @@ const Products = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { products } = useSelector((state) => state?.api);
 
-  const types = ["berjer", "koltuk", "masa", "sehpa", "unite"];
-
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-
-  console.log(!!products);
 
   return (
     <>

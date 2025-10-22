@@ -14,6 +14,7 @@ import { Product_Type } from "../utils/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { types } from "../constants/productsTypes";
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -194,11 +195,9 @@ const Dashboard = () => {
               value={formData.type || "kenepe"}
               onChange={handleChange}
             >
-              <option value="berjer">Berjer</option>
-              <option value="koltuk">Koltuk</option>
-              <option value="masa">Masa</option>
-              <option value="unite">Unite</option>
-              <option value="sehpa">Sehpa</option>
+              {types.map((type) => (
+                <option value={type}>{type.toUpperCase()}</option>
+              ))}
             </select>
 
             <div className="input-group mb-3">
