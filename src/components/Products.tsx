@@ -8,7 +8,7 @@ import { fetchProducts } from "../redux/slices/apiSlice";
 import { useNavigate } from "react-router-dom";
 import { types } from "../constants/productsTypes";
 
-interface IProduct {
+interface IProducts {
   type: string;
   products_obj: IProduct[];
 }
@@ -16,7 +16,7 @@ interface IProduct {
 // export const PRODUCTS_KEY = "vistas_products";
 export const CURRENT_PRODUCT_KEY = "vistas_product";
 
-const ProductTypeArea = ({ type, products_obj }: IProduct) => {
+const ProductTypeArea = ({ type, products_obj }: IProducts) => {
   // Showing Products Logic --START--
   const [itsOver, setItsOver] = useState<boolean>(false);
   const [showingProducts, setShowingProducts] = useState<number>(5 - 1);
