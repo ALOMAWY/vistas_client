@@ -145,7 +145,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-  });
+  }, []);
 
   // Login Logic
 
