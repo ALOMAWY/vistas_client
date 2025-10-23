@@ -10,7 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../redux/store";
 import { uploadImage } from "../redux/slices/apiSlice";
-import { Product_Type } from "../utils/types";
+import { IProduct } from "../utils/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -20,20 +20,23 @@ const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const { products, productURL, isLoading } = useSelector(
-    (state) => state?.api
+    (state: { api: object }) =>
+      state?.api as {
+        products: IProduct[];
+        productURL: string;
+        isLoading: boolean;
+      }
   );
   const navigate = useNavigate();
 
-  const productState: Product_Type = {
+  const productState: IProduct = {
     size: "",
     description: "",
     type: "",
     image: "",
     name: "",
   };
-  const [formData, setFormData] = useState<Product_Type>(
-    productState as Product_Type
-  );
+  const [formData, setFormData] = useState<IProduct>(productState as IProduct);
 
   const [isDisabled, setIsDisabled] = useState(true);
   const [isUpdatingNow, setIsUpdatingNow] = useState(false);
@@ -137,9 +140,12 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchProducts());
     addImageToState();
   }, [productURL]);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  });
 
   // Login Logic
 
@@ -196,7 +202,9 @@ const Dashboard = () => {
               onChange={handleChange}
             >
               {types.map((type) => (
-                <option value={type}>{type.toUpperCase()}</option>
+                <option key={type} value={type}>
+                  {type.toUpperCase()}
+                </option>
               ))}
             </select>
 
@@ -314,7 +322,7 @@ const Dashboard = () => {
             </div>
             <ol id="products-list" className="list-group list-group-numbered">
               {products &&
-                products.map((prod: Product_Type) => (
+                products.map((prod: IProduct) => (
                   <li
                     className="d-flex align-items-center justify-content-between fs-3 fw-bold text-capitalize product-item list-group-item"
                     key={prod._id}

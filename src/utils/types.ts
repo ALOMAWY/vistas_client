@@ -1,4 +1,4 @@
-export interface Product_Type {
+export interface IProduct {
   size: string | "";
   type: string;
   description: string;
@@ -7,6 +7,6 @@ export interface Product_Type {
   _id?: string;
 }
 export interface updateProductParamsTypes {
-  data: Product_Type;
+  data: IProduct;
   id: string;
 }

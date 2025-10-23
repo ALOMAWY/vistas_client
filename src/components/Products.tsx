@@ -1,8 +1,8 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { Product_Type } from "../utils/types";
+import { IProduct } from "../utils/types";
 import { AppDispatch } from "../redux/store";
 import { fetchProducts } from "../redux/slices/apiSlice";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ import { types } from "../constants/productsTypes";
 
 interface IProduct {
   type: string;
-  products_obj: Product_Type[];
+  products_obj: IProduct[];
 }
 
 // export const PRODUCTS_KEY = "vistas_products";
@@ -66,7 +66,7 @@ const ProductTypeArea = ({ type, products_obj }: IProduct) => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [titleHeight]);
 
   //
   const navigate = useNavigate();
@@ -105,7 +105,7 @@ const ProductTypeArea = ({ type, products_obj }: IProduct) => {
       <div className="holder">
         <div className="row gap-3 align-items-start " id={`${type}-product`}>
           {products &&
-            products.map((product: Product_Type, index) => (
+            products.map((product: IProduct, index) => (
               <div
                 key={index}
                 className={`${
@@ -147,7 +147,9 @@ const ProductTypeArea = ({ type, products_obj }: IProduct) => {
 
 const Products = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { products } = useSelector((state) => state?.api);
+  const { products } = useSelector(
+    (state: { api: object }) => state.api as { products: IProduct[] }
+  );
 
   useEffect(() => {
     dispatch(fetchProducts());
