@@ -5,6 +5,7 @@ export interface IProduct {
   name: string;
   image: string;
   _id?: string;
+  
 }
 export interface updateProductParamsTypes {
   data: IProduct;

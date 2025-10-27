@@ -29,14 +29,14 @@ const Dashboard = () => {
   );
   const navigate = useNavigate();
 
-  const productState: IProduct = {
+  const productInitialState: IProduct = {
     size: "",
     description: "",
     type: "",
     image: "",
     name: "",
   };
-  const [formData, setFormData] = useState<IProduct>(productState as IProduct);
+  const [formData, setFormData] = useState<IProduct>(productInitialState);
 
   const [isDisabled, setIsDisabled] = useState(true);
   const [isUpdatingNow, setIsUpdatingNow] = useState(false);
@@ -141,10 +141,12 @@ const Dashboard = () => {
 
   useEffect(() => {
     addImageToState();
+    console.log("Data Fetching");
   }, [productURL]);
 
   useEffect(() => {
     dispatch(fetchProducts());
+    console.log("Data Fetching");
   }, []);
 
   // Login Logic
@@ -172,7 +174,7 @@ const Dashboard = () => {
   };
 
   return (
-    <>
+    <section dir="ltr" className="dashboard-section">
       {isAdmin ? (
         <div className="container">
           <h1 className="text-center fw-bold fs-1 text-uppercase">
@@ -409,7 +411,7 @@ const Dashboard = () => {
           </form>
         </div>
       )}
-    </>
+    </section>
   );
 };
 

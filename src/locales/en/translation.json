@@ -1,0 +1,128 @@
+{
+  "header": {
+    "menu": "menu"
+  },
+
+  "menu": {
+    "reception": "Reception",
+    "whoWeAre": "Who We Are",
+    "about": "About",
+    "products": "Products",
+    "contact": "Contact"
+  },
+
+  "landing": {
+    "tagline": "Vistas - Home collection",
+    "heading": {
+      "quality": "Quality",
+      "fabrics": "fabrics",
+      "unique": "unique,",
+      "creations": "creations."
+    },
+    "contact": {
+      "link": "Contact our team"
+    },
+    "discover": {
+      "link": "Discover our products"
+    }
+  },
+  "about": {
+    "sectionTitle": "About",
+    "subtitle": "About Vistas",
+    "headline": "Quality products within everyone's reach",
+    "innovationTitle": "Innovation and creativity",
+    "innovationText": "We are constantly looking to innovate and create new designs and styles to meet the changing needs of our customers.",
+    "comfortTitle": "Comfort and well-being",
+    "comfortText": "We design products that bring comfort and well-being to the interior of homes.",
+    "discoverButton": "Discover Our Products"
+  },
+  "discover": {
+    "title": "Products that combine elegance and functionality",
+    "text": "Pieces that will not only beautify your space, but will also stand the test of time.",
+    "button": "Discover Us"
+  },
+  "ourProducts": {
+    "sectionTitle": "Our Product",
+    "heading": "Our Product"
+  },
+  "footer": {
+    "aboutText": "Passionate about Interior Design and motivated by the desire to offer the best to the Algerian consumer, the founders of Vistas made the decision to create this home textile company stemming from a combination of deep motivations and personal convictions.",
+    "menu": {
+      "title": "Menu",
+      "about": "About",
+      "reception": "Reception",
+      "whoWeAre": "Who We Are",
+      "product": "Product",
+      "contact": "Contact"
+    },
+    "follow": {
+      "title": "Follow",
+      "whatsapp": "Whatsapp",
+      "facebook": "Facebook",
+      "instagram": "Instagram"
+    },
+    "rights": "All rights reserved",
+    "developedBy": "Site developed by"
+  },
+  "whoWeAre": {
+    "title": "Who We Are?",
+    "description1": "Welcome to Vistas, your preferred destination for exceptional textiles dedicated to the embellishment of your interior. Our company stands out for its commitment to quality, creativity and comfort.",
+    "description2": "Every piece we offer is the result of meticulous attention to detail and unparalleled craftsmanship. We carefully select materials to ensure not only their aesthetics, but also their long-term durability.",
+    "ourValues": "Our Values",
+    "values": {
+      "innovation": {
+        "title": "Innovation and Creativity",
+        "text": "We are constantly looking to innovate and create new designs and styles to meet the changing needs of our customers."
+      },
+      "comfort": {
+        "title": "Comfort and Well-being",
+        "text": "We design products that bring comfort and well-being to the interior of homes."
+      },
+      "customization": {
+        "title": "Tailor-made Customization",
+        "text": "We offer customized designs that meet the unique preferences of our customers."
+      }
+    },
+    "stats": {
+      "subtitle": "Trust the Experts",
+      "title": "Vistas in Numbers",
+      "experience": "Years of Experience",
+      "wilayas": "Wilayas Affected",
+      "customers": "Satisfied Customers"
+    }
+  },
+  "contact": {
+    "findUs": "Find Us On Google Maps",
+    "formTitle": "Contact Form",
+    "emailTitle": "Contact Us By Email",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message"
+  },
+  "products": {
+    "product": "Product",
+    "products": "Products",
+    "noProducts": "No Products"
+  },
+
+  "productDetails": {
+    "title": "Title",
+    "type": "Type",
+    "description": "Description",
+    "seeMore": "See More Products",
+    "noProduct": "No product selected."
+  },
+  "types": {
+    "armchair": "Armchair",
+    "sofa": "Sofa",
+    "diningTable": "Dining Table",
+    "coffeeTable": "Coffee Table",
+    "tvTable": "TV Table"
+  },
+  "assets": {
+    "loading": "Loading ..."
+  }
+}

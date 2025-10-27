@@ -1,1 +1,7 @@
-export const types = ["berjer", "koltuk", "masa", "sehpa", "unite"];
+export const types = [
+  "Armchair",
+  "Sofa",
+  "Dining Table",
+  "Coffee Table",
+  "TV Table",
+];

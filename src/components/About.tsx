@@ -4,44 +4,70 @@ import Image_About_3 from "../assets/images/about_3.jpg";
 import Image_About_4 from "../assets/images/about_4.jpg";
 import Image_About_5 from "../assets/images/about_5.jpg";
 import ImageShadow from "react-image-shadow";
+import { useTranslation } from "react-i18next";
+import { mobileView } from "../constants/responsive/moblieView";
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       className="sections about position-relative z-1 bg-white"
       id="about"
     >
       <h1 className="section-title text-center background-light-effect-50">
-        About
+        {t("about.sectionTitle")}
       </h1>
 
       <div className="container-75">
         <div className="row">
           <div className="text-area col-xxl-5 col-lg-12 text-start text-black">
             <div className="show-text-x-50">
-              <h6 className="fs-6 fw-normal mb-3 ls-none">About Vistas</h6>
-              <h1 className="fw-bold lh-base">
-                Quality products within everyone's reach
+              <h6
+                className={`fs-6 fw-normal mb-3 ls-none ${
+                  +mobileView ? "text-center" : ""
+                }`}
+              >
+                {t("about.subtitle")}
+              </h6>
+              <h1
+                className={`fw-bold lh-base ${mobileView ? "text-center" : ""}`}
+              >
+                {t("about.headline")}
               </h1>
             </div>
-            <div className="mt-5 show-text-y-50">
-              <p className="fw-bold fs-6 mb-3 ls-none">
-                Innovation and creativity
-              </p>
 
-              <p className="fw-normal lh-base ls-1">
-                We are constantly looking to innovate and create new designs and
-                styles to meet the changing needs of our customers.
+            <div className={"mt-5 show-text-y-50"}>
+              <p
+                className={`fw-bold fs-6 mb-3 ls-none ${
+                  mobileView ? "text-center" : ""
+                }`}
+              >
+                {t("about.innovationTitle")}
+              </p>
+              <p
+                className={`fw-normal lh-base ls-1 ${
+                  mobileView ? "text-center" : ""
+                }`}
+              >
+                {t("about.innovationText")}
               </p>
             </div>
-            <div className="my-5 show-text-y-50">
-              <p className="fw-bold fs-6 mb-3 ls-none">
-                Comfort and well-being
-              </p>
 
-              <p className="fw-normal lh-base ls-1">
-                We design products that bring comfort and well-being to the
-                interior of homes.
+            <div className="my-5 show-text-y-50">
+              <p
+                className={`fw-bold fs-6 mb-3 ls-none ${
+                  +mobileView ? "text-center" : ""
+                }`}
+              >
+                {t("about.comfortTitle")}
+              </p>
+              <p
+                className={`fw-normal lh-base ls-1 ${
+                  mobileView ? "text-center" : ""
+                }`}
+              >
+                {t("about.comfortText")}
               </p>
             </div>
 
@@ -49,7 +75,7 @@ const About = () => {
               href="#"
               className="main-btn bg-black text-white p-4 ls-1 mt-6 fw-normal text-uppercase"
             >
-              Discover Our Products
+              {t("about.discoverButton")}
             </a>
           </div>
 
@@ -57,53 +83,31 @@ const About = () => {
             <div className="container-75">
               <div className="row">
                 <div className="col-lg-6 col-sm-12 d-flex flex-column gap-4 justify-content-center">
-                  <div className="img-holder background-light-effect-10">
-                    <a
-                      href={Image_About_1}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ImageShadow src={Image_About_1} className="m-auto" />
-                    </a>
-                  </div>
-                  <div className="img-holder background-light-effect-10">
-                    <a
-                      href={Image_About_2}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ImageShadow src={Image_About_2} className="m-auto" />
-                    </a>
-                  </div>
-                  <div className="img-holder background-light-effect-10">
-                    <a
-                      href={Image_About_3}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ImageShadow src={Image_About_3} className="m-auto" />
-                    </a>
-                  </div>
+                  {[Image_About_1, Image_About_2, Image_About_3].map(
+                    (img, i) => (
+                      <div
+                        key={i}
+                        className="img-holder background-light-effect-10"
+                      >
+                        <a href={img} target="_blank" rel="noopener noreferrer">
+                          <ImageShadow src={img} className="m-auto" />
+                        </a>
+                      </div>
+                    )
+                  )}
                 </div>
+
                 <div className="col-lg-6 col-sm-12 d-flex flex-column gap-4">
-                  <div className="img-holder background-light-effect-10">
-                    <a
-                      href={Image_About_4}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {[Image_About_4, Image_About_5].map((img, i) => (
+                    <div
+                      key={i}
+                      className="img-holder background-light-effect-10"
                     >
-                      <ImageShadow src={Image_About_4} className="m-auto" />
-                    </a>
-                  </div>
-                  <div className="img-holder background-light-effect-10">
-                    <a
-                      href={Image_About_5}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ImageShadow src={Image_About_5} className="m-auto" />
-                    </a>
-                  </div>
+                      <a href={img} target="_blank" rel="noopener noreferrer">
+                        <ImageShadow src={img} className="m-auto" />
+                      </a>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

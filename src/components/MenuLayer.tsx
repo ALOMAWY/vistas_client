@@ -1,11 +1,13 @@
-
 import { Link } from "react-router-dom";
 import { useMenu } from "./MenuContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 
 const MenuLayer = () => {
   const { isMenuOpen, setIsMenuOpen, isAnimating } = useMenu();
+  const { t } = useTranslation();
+
   return (
     <section
       className="menu-area position-absolute w-100 h-100 bg-transparent top-0 start-0 fixed-top sticky z-2"
@@ -23,52 +25,55 @@ const MenuLayer = () => {
       >
         <FontAwesomeIcon icon={faCircleXmark} size="2x" color="white" />
       </div>
-      <ul className="text-center text-white list-unstyled position-absolute top-50 start-50 translate-middle">
+
+      <ul className="text-center text-white list-unstyled position-absolute top-50 start-50 translate-middle p-0">
         <li>
           <Link
             onClick={() => setIsMenuOpen(false)}
-            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block"
+            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block text-center"
             to="/"
           >
-            Reception
+            {t("menu.reception")}
           </Link>
         </li>
 
         <li>
           <Link
             onClick={() => setIsMenuOpen(false)}
-            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block"
+            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block text-center"
             to="/who_we_are"
           >
-            Who We Are
-          </Link>
-        </li>
-        <li>
-          <Link
-            onClick={() => setIsMenuOpen(false)}
-            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block"
-            to="/#about"
-          >
-            About
-          </Link>
-        </li>
-        <li>
-          <Link
-            onClick={() => setIsMenuOpen(false)}
-            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block"
-            to="/products"
-          >
-            Products
+            {t("menu.whoWeAre")}
           </Link>
         </li>
 
         <li>
           <Link
             onClick={() => setIsMenuOpen(false)}
-            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block"
+            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block text-center"
+            to="/#about"
+          >
+            {t("menu.about")}
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            onClick={() => setIsMenuOpen(false)}
+            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block text-center"
+            to="/products"
+          >
+            {t("menu.products")}
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            onClick={() => setIsMenuOpen(false)}
+            className="text-decoration-none text-white cursor-pointer fs-4 p-4 fw-bold text-capitalize d-block text-center"
             to="/contact"
           >
-            Contact
+            {t("menu.contact")}
           </Link>
         </li>
       </ul>

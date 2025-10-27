@@ -12,8 +12,44 @@ import Contact from "./components/Contact.tsx";
 import Products from "./components/Products.tsx";
 import Dashboard from "./components/Dashborad.tsx";
 import ProductDetails from "./components/ProductDetails.tsx";
+import {
+  languageType,
+  VISTAS_LANGUAGE_KEY,
+} from "./constants/language/lang.ts";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    const setLanguageSettings = () => {
+      const currentLanguage = localStorage.getItem(
+        VISTAS_LANGUAGE_KEY
+      ) as languageType;
+
+      document.body.dir = currentLanguage == "en" ? "ltr" : "rtl";
+      document.body.style.fontFamily =
+        currentLanguage == "en"
+          ? "var(--bs-body-font-family)"
+          : "Noto Sans Arabic, sans-serif";
+
+      const newStyle = document.createElement("style");
+
+      const styleing = `
+    *{
+    text-align:${currentLanguage == "en" ? "left" : "right"}
+    }
+
+    .landing-screen .widgets-layer .quote::after {
+    right: ${currentLanguage == "en" ? "-6rem" : "16rem"};
+    }`;
+
+      newStyle.append(styleing);
+
+      document.head.appendChild(newStyle);
+    };
+    setLanguageSettings();
+  }, []);
+  // Styling
+
   return (
     <MenuProvider>
       <BrowserRouter>

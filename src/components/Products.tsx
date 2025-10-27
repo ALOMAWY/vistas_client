@@ -7,6 +7,7 @@ import { AppDispatch } from "../redux/store";
 import { fetchProducts } from "../redux/slices/apiSlice";
 import { useNavigate } from "react-router-dom";
 import { types } from "../constants/productsTypes";
+import { useTranslation } from "react-i18next";
 
 interface IProducts {
   type: string;
@@ -17,6 +18,9 @@ interface IProducts {
 export const CURRENT_PRODUCT_KEY = "vistas_product";
 
 const ProductTypeArea = ({ type, products_obj }: IProducts) => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
   // Showing Products Logic --START--
   const [itsOver, setItsOver] = useState<boolean>(false);
   const [showingProducts, setShowingProducts] = useState<number>(5 - 1);
@@ -68,9 +72,6 @@ const ProductTypeArea = ({ type, products_obj }: IProducts) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [titleHeight]);
 
-  //
-  const navigate = useNavigate();
-
   const handleShowMore = () => {
     setShowingProducts(showingProducts + 5);
   };
@@ -95,9 +96,12 @@ const ProductTypeArea = ({ type, products_obj }: IProducts) => {
           }}
           ref={titleRef}
         >
-          {type}
+          {t(`types.${type.toLowerCase()}`)}
           <span className="products-length fs-3 p-3">
-            {numberOfProducts} {numberOfProducts >= 1 ? "Product" : "Products"}
+            {numberOfProducts}{" "}
+            {numberOfProducts >= 1
+              ? t("products.product")
+              : t("products.products")}
           </span>
         </h1>
       </div>
@@ -146,9 +150,12 @@ const ProductTypeArea = ({ type, products_obj }: IProducts) => {
 };
 
 const Products = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch<AppDispatch>();
-  const { products } = useSelector(
-    (state: { api: object }) => state.api as { products: IProduct[] }
+  const { products, isLoading } = useSelector(
+    (state: { api: object }) =>
+      state.api as { products: IProduct[]; isLoading: boolean }
   );
 
   useEffect(() => {
@@ -160,8 +167,8 @@ const Products = () => {
       <Header isDark={true} />
       <section className="products-holders pb-5 d-flex flex-column">
         {!products.length ? (
-          <div className="container text-center fs-1 fw-bold text-uppercase">
-            No Product
+          <div className="container text-center fs-1 fw-bold ">
+            {isLoading ? t("assets.loading") : t("products.noProducts")}
           </div>
         ) : (
           types.map((type, index) => (
