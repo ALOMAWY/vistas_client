@@ -1,13 +1,12 @@
 import { useState } from "react";
-
-import Logo_Image from "../assets/images/Logo-Vistas.png";
-
+import Logo_Image from "../assets/logos/break white  Rec full logo.png";
 import { useMenu } from "./MenuContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faLanguage } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
 import i18n from "../utils/i18n";
 import { languageType, VISTAS_LANGUAGE_KEY } from "../constants/language/lang";
+import IconMenu from "../assets/logos/Break icon.png";
 
 interface HeaderProps {
   isDark?: boolean;
@@ -58,11 +57,11 @@ const Header = ({ isDark }: HeaderProps) => {
       <header>
         <nav className="navbar py-0 bg-transparent">
           <div className="container-75 d-flex justify-content-between align-items-center">
-            <a className="" href="#">
+            <a className="" href="/">
               <img
                 src={Logo_Image}
                 alt=""
-                className="img-fluid"
+                className="img-fluid w-25"
                 loading="lazy"
               />
             </a>
@@ -71,7 +70,7 @@ const Header = ({ isDark }: HeaderProps) => {
               {isDark ? (
                 <>
                   <button
-                    className=" bg-transparent border p-1 rounded-3"
+                    className=" bg-transparent border-0 p-1 rounded-3"
                     onClick={handleLanguage}
                   >
                     <FontAwesomeIcon
@@ -84,7 +83,7 @@ const Header = ({ isDark }: HeaderProps) => {
               ) : (
                 <>
                   <button
-                    className=" bg-transparent border p-2 rounded-3"
+                    className="bg-transparent border-0 p-2 rounded-3"
                     onClick={handleLanguage}
                   >
                     <FontAwesomeIcon
@@ -104,16 +103,20 @@ const Header = ({ isDark }: HeaderProps) => {
               >
                 {isDark ? (
                   <div className="d-flex align-items-center gap-4">
-                    <span className="text-black  text-uppercase fs-3">
-                      {t("header.menu")}
-                    </span>
+                    <img
+                      src={IconMenu}
+                      style={{ width: "30px" }}
+                      alt="icon-logo"
+                    />
                     <FontAwesomeIcon icon={faBars} color="black" size="2x" />
                   </div>
                 ) : (
-                  <div className="d-flex align-items-center gap-3">
-                    <span className="text-white  text-uppercase fs-3">
-                      {t("header.menu")}
-                    </span>
+                  <div className="d-flex align-items-center gap-4">
+                    <img
+                      src={IconMenu}
+                      style={{ width: "30px" }}
+                      alt="icon-logo"
+                    />
                     <FontAwesomeIcon icon={faBars} color="white" size="2x" />
                   </div>
                 )}
