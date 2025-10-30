@@ -33,7 +33,7 @@ const Counter = ({ count, type }: CounterProp) => {
   }, [count]);
 
   return (
-    <span className="counter fw-bold pb-1 show-text-x-20">
+    <span className="counter fs-1 fw-bold pb-1 show-text-x-20">
       {type === "percent" ? `${currentCount}%` : currentCount}
     </span>
   );
@@ -107,7 +107,7 @@ const WhoWeAre = () => {
                   mobileView ? "text-center" : ""
                 }`}
               >
-                Vistas
+                {t("assets.title")}
               </h5>
               <h1
                 className={`text-capitalize big-title mt-2 mb-5 show-text-y-50 ${
@@ -205,21 +205,21 @@ const WhoWeAre = () => {
 
             <div ref={countersRef} className="col-lg-8 col-md-12 container">
               <div className="row counters gap-3">
-                <div className="col-lg-3 col-md-12 text-center flex-grow-1">
+                <div className="col-lg-3 col-md-12 text-center flex-grow-1 d-flex flex-column align-items-center justify-content-evenly">
                   {startCount && <Counter count={5} />}
-                  <p className="fs-4 text-body-tertiary ls-2 pb-3 show-text-x-10">
+                  <p className="fs-4 text-body-tertiary ls-2 pb-3 show-text-x-10 text-center">
                     {t("whoWeAre.stats.experience")}
                   </p>
                 </div>
-                <div className="col-lg-3 col-md-12 text-center flex-grow-1">
+                <div className="col-lg-3 col-md-12 text-center flex-grow-1 d-flex flex-column align-items-center justify-content-evenly">
                   {startCount && <Counter count={58} />}
-                  <p className="fs-4 text-body-tertiary ls-2 pb-3 show-text-x-10">
+                  <p className="fs-4 text-body-tertiary ls-2 pb-3 show-text-x-10 text-center">
                     {t("whoWeAre.stats.wilayas")}
                   </p>
                 </div>
-                <div className="col-lg-3 col-md-12 text-center flex-grow-1">
+                <div className="col-lg-3 col-md-12 text-center flex-grow-1 d-flex flex-column align-items-center justify-content-evenly">
                   {startCount && <Counter count={100} type="percent" />}
-                  <p className="fs-4 text-body-tertiary ls-2 pb-3 show-text-x-10">
+                  <p className="fs-4 text-body-tertiary ls-2 pb-3 show-text-x-10 text-center">
                     {t("whoWeAre.stats.customers")}
                   </p>
                 </div>

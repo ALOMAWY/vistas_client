@@ -14,7 +14,7 @@ import Dashboard from "./components/Dashborad.tsx";
 import ProductDetails from "./components/ProductDetails.tsx";
 import {
   languageType,
-  VISTAS_LANGUAGE_KEY,
+  ISTABRAK_LANGUAGE_KEY,
 } from "./constants/language/lang.ts";
 import { useEffect } from "react";
 
@@ -22,10 +22,15 @@ function App() {
   useEffect(() => {
     const setLanguageSettings = () => {
       const currentLanguage = localStorage.getItem(
-        VISTAS_LANGUAGE_KEY
+        ISTABRAK_LANGUAGE_KEY
       ) as languageType;
 
-      document.body.dir = currentLanguage == "en" ? "ltr" : "rtl";
+      document.body.dir =
+        currentLanguage == "en"
+          ? "ltr"
+          : currentLanguage == "ar"
+          ? "rtl"
+          : "ltr";
       document.body.style.fontFamily =
         currentLanguage == "en"
           ? "var(--bs-body-font-family)"
@@ -35,11 +40,23 @@ function App() {
 
       const styleing = `
     *{
-    text-align:${currentLanguage == "en" ? "left" : "right"}
+    text-align:${
+      currentLanguage == "en"
+        ? "left"
+        : currentLanguage == "ar"
+        ? "right"
+        : "left"
+    }
     }
 
     .landing-screen .widgets-layer .quote::after {
-    right: ${currentLanguage == "en" ? "-6rem" : "16rem"};
+    right: ${
+      currentLanguage == "en"
+        ? "-6rem"
+        : currentLanguage == "ar"
+        ? "16rem"
+        : "-6rem"
+    };
     }`;
 
       newStyle.append(styleing);

@@ -14,8 +14,8 @@ interface IProducts {
   products_obj: IProduct[];
 }
 
-// export const PRODUCTS_KEY = "vistas_products";
-export const CURRENT_PRODUCT_KEY = "vistas_product";
+// export const PRODUCTS_KEY = "istabrak_products";
+export const CURRENT_PRODUCT_KEY = "istabrak_product";
 
 const ProductTypeArea = ({ type, products_obj }: IProducts) => {
   const { t } = useTranslation();

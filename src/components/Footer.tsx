@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { mobileView } from "../constants/responsive/moblieView";
+import { ISTABRAK_LANGUAGE_KEY } from "../constants/language/lang";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -20,6 +21,10 @@ const Footer = () => {
     }
   };
 
+  const currentLanguage = localStorage.getItem(ISTABRAK_LANGUAGE_KEY);
+  const arabicNumbers = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+  const currentYear = new Date().getFullYear();
+
   return (
     <section>
       <footer className="container-75">
@@ -30,7 +35,7 @@ const Footer = () => {
                 mobileView ? "m-auto" : ""
               }`}
             >
-              Vistas
+              {t("assets.title")}
             </h3>
             <p
               className={`ls-n1 fw-normal text-black lh-lg w-75 ${
@@ -47,17 +52,17 @@ const Footer = () => {
             </h6>
             <ul className="list-unstyled text-black p-0">
               <li className="cursor-pointer fw-medium pb-3">
-                <Link className="text-black" to="/about">
+                <Link className="text-black" to="/#about">
                   {t("footer.menu.about")}
                 </Link>
               </li>
               <li className="cursor-pointer fw-medium pb-3">
-                <Link className="text-black" to="/reception">
+                <Link className="text-black" to="/">
                   {t("footer.menu.reception")}
                 </Link>
               </li>
               <li className="cursor-pointer fw-medium pb-3">
-                <Link className="text-black" to="/who-we-are">
+                <Link className="text-black" to="/who_we_are">
                   {t("footer.menu.whoWeAre")}
                 </Link>
               </li>
@@ -81,7 +86,7 @@ const Footer = () => {
                       key={i}
                       className="cursor-pointer fw-medium p-3 border-bottom border-gray"
                     >
-                      <Link className="text-black" to="/Products">
+                      <Link className="text-black" to="/products">
                         {t("footer.menu.product")} {i + 1}
                       </Link>
                     </li>
@@ -124,7 +129,19 @@ const Footer = () => {
       <div className="copyright border-top pt-3">
         <div className="container-75">
           <p className="fw-normal text-center">
-            &#169; 2025 Vistas - {t("footer.rights")} |{t("footer.developedBy")}
+            &#169;
+            <span className="px-1">
+              {currentLanguage == "en"
+                ? currentYear
+                : currentLanguage == "ar"
+                ? currentYear
+                    .toString()
+                    .split("")
+                    .map((n) => arabicNumbers[+n])
+                : currentYear}
+            </span>
+            {t("assets.title")} - {t("footer.rights")} |
+            {t("footer.developedBy")}
             <Link
               className="text-primary p-2"
               to="https://github.com/ALOMAWY"

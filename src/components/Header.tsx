@@ -3,27 +3,31 @@ import Logo_Image from "../assets/logos/break white  Rec full logo.png";
 import { useMenu } from "./MenuContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faLanguage } from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from "react-i18next";
 import i18n from "../utils/i18n";
-import { languageType, VISTAS_LANGUAGE_KEY } from "../constants/language/lang";
+import {
+  languageType,
+  ISTABRAK_LANGUAGE_KEY,
+} from "../constants/language/lang";
 import IconMenu from "../assets/logos/Break icon.png";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   isDark?: boolean;
 }
 
 const Header = ({ isDark }: HeaderProps) => {
-  const { t } = useTranslation();
   const { setIsMenuOpen, isMenuOpen } = useMenu();
 
   const storageLang: languageType =
-    (localStorage.getItem(VISTAS_LANGUAGE_KEY) as languageType) || "en";
+    (localStorage.getItem(ISTABRAK_LANGUAGE_KEY) as languageType) || "en";
   const [lang, setLang] = useState<languageType>(storageLang);
+
 
   const handleLanguage = () => {
     const newLang = lang == "en" ? "ar" : "en";
     setLang(newLang);
-    localStorage.setItem(VISTAS_LANGUAGE_KEY, newLang);
+    localStorage.setItem(ISTABRAK_LANGUAGE_KEY, newLang);
+
     i18n.changeLanguage(newLang);
 
     // Styling
@@ -57,14 +61,14 @@ const Header = ({ isDark }: HeaderProps) => {
       <header>
         <nav className="navbar py-0 bg-transparent">
           <div className="container-75 d-flex justify-content-between align-items-center">
-            <a className="" href="/">
+            <Link to="/">
               <img
                 src={Logo_Image}
                 alt=""
                 className="img-fluid w-25"
                 loading="lazy"
               />
-            </a>
+            </Link>
 
             <div className="d-flex gap-3 align-items-center">
               {isDark ? (
@@ -103,20 +107,20 @@ const Header = ({ isDark }: HeaderProps) => {
               >
                 {isDark ? (
                   <div className="d-flex align-items-center gap-4">
-                    <img
+                    {/* <img
                       src={IconMenu}
                       style={{ width: "30px" }}
                       alt="icon-logo"
-                    />
+                    /> */}
                     <FontAwesomeIcon icon={faBars} color="black" size="2x" />
                   </div>
                 ) : (
                   <div className="d-flex align-items-center gap-4">
-                    <img
+                    {/* <img
                       src={IconMenu}
                       style={{ width: "30px" }}
                       alt="icon-logo"
-                    />
+                    /> */}
                     <FontAwesomeIcon icon={faBars} color="white" size="2x" />
                   </div>
                 )}

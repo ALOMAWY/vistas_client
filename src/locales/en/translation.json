@@ -2,7 +2,6 @@
   "header": {
     "menu": "menu"
   },
-
   "menu": {
     "reception": "Reception",
     "whoWeAre": "Who We Are",
@@ -10,9 +9,8 @@
     "products": "Products",
     "contact": "Contact"
   },
-
   "landing": {
-    "tagline": "Vistas - Home collection",
+    "tagline": "Istabrak - Home collection",
     "heading": {
       "quality": "Quality",
       "fabrics": "fabrics",
@@ -28,7 +26,7 @@
   },
   "about": {
     "sectionTitle": "About",
-    "subtitle": "About Vistas",
+    "subtitle": "About Istabrak",
     "headline": "Quality products within everyone's reach",
     "innovationTitle": "Innovation and creativity",
     "innovationText": "We are constantly looking to innovate and create new designs and styles to meet the changing needs of our customers.",
@@ -46,7 +44,7 @@
     "heading": "Our Product"
   },
   "footer": {
-    "aboutText": "Passionate about Interior Design and motivated by the desire to offer the best to the Algerian consumer, the founders of Vistas made the decision to create this home textile company stemming from a combination of deep motivations and personal convictions.",
+    "aboutText": "Passionate about Interior Design and motivated by the desire to offer the best to the Algerian consumer, the founders of Istabrak made the decision to create this home textile company stemming from a combination of deep motivations and personal convictions.",
     "menu": {
       "title": "Menu",
       "about": "About",
@@ -66,7 +64,7 @@
   },
   "whoWeAre": {
     "title": "Who We Are?",
-    "description1": "Welcome to Vistas, your preferred destination for exceptional textiles dedicated to the embellishment of your interior. Our company stands out for its commitment to quality, creativity and comfort.",
+    "description1": "Welcome to Istabrak, your preferred destination for exceptional textiles dedicated to the embellishment of your interior. Our company stands out for its commitment to quality, creativity and comfort.",
     "description2": "Every piece we offer is the result of meticulous attention to detail and unparalleled craftsmanship. We carefully select materials to ensure not only their aesthetics, but also their long-term durability.",
     "ourValues": "Our Values",
     "values": {
@@ -85,7 +83,7 @@
     },
     "stats": {
       "subtitle": "Trust the Experts",
-      "title": "Vistas in Numbers",
+      "title": "Istabrak in Numbers",
       "experience": "Years of Experience",
       "wilayas": "Wilayas Affected",
       "customers": "Satisfied Customers"
@@ -107,7 +105,6 @@
     "products": "Products",
     "noProducts": "No Products"
   },
-
   "productDetails": {
     "title": "Title",
     "type": "Type",
@@ -123,6 +120,8 @@
     "tvTable": "TV Table"
   },
   "assets": {
-    "loading": "Loading ..."
+    "title": "Istabrak",
+    "loading": "Loading ...",
+    "numbers": ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
   }
 }
